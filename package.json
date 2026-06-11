@@ -1,0 +1,27 @@
+{
+  "name": "grafana-learn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naaakul/Grafana-learn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/naaakul/Grafana-learn/issues"
+  },
+  "homepage": "https://github.com/naaakul/Grafana-learn#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "pino": "^10.3.1",
+    "pino-http": "^11.0.0",
+    "prom-client": "^15.1.3"
+  }
+}
