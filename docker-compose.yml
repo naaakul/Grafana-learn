@@ -1,0 +1,50 @@
+services:
+
+  node-app:
+    build: .
+    container_name: node-app
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./logs:/app/logs
+
+  prometheus:
+    image: prom/prometheus
+
+    container_name: prometheus
+
+    ports:
+      - "9090:9090"
+
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  loki:
+    image: grafana/loki:latest
+
+    container_name: loki
+
+    ports:
+      - "3100:3100"
+
+  promtail:
+    image: grafana/promtail:latest
+
+    container_name: promtail
+
+    volumes:
+      - ./logs:/var/log/app
+      - ./promtail/promtail.yml:/etc/promtail/config.yml
+
+    command:
+      - -config.file=/etc/promtail/config.yml
+
+  grafana:
+    image: grafana/grafana
+
+    container_name: grafana
+
+    ports:
+      - "3001:3000"
